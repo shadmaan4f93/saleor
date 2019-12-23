@@ -4,4 +4,4 @@ deployments:
     filename:
       ./docker-compose.yml
     ready_wait:
-      120
+      1200
