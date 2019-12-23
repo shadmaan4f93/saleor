@@ -4,7 +4,7 @@ services:
   web:
     ports:
       - 80:80
-    command: bash -c "python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+    command: bash -c "python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:80"
     volumes:
       - ./saleor/:/app/saleor:Z
       - ./templates/:/app/templates:Z
