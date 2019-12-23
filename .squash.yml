@@ -1,0 +1,7 @@
+
+deployments:
+  celery:
+    filename:
+      ./docker-compose.yml
+    ready_wait:
+      120

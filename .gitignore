@@ -17,6 +17,7 @@
 !.testcafe
 !.travis*
 !.tx
+!.squash.yml
 *.css
 *.log
 *.pot

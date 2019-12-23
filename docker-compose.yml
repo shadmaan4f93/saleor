@@ -7,7 +7,7 @@ services:
       dockerfile: ./Dockerfile
       args:
         STATIC_URL: '/static/'
-    restart: unless-stopped
+    restart: always
     networks:
       - saleor-backend-tier
     env_file: common.env
@@ -16,8 +16,8 @@ services:
       - redis
 
   db:
-    image: library/postgres:11.1-alpine
-    restart: unless-stopped
+    image: library/postgres:latest
+    restart: always
     networks:
       - saleor-backend-tier
     volumes:
@@ -27,8 +27,8 @@ services:
       - POSTGRES_PASSWORD=saleor
 
   redis:
-    image: library/redis:5.0-alpine
-    restart: unless-stopped
+    image: library/redis:latest
+    restart: always
     networks:
       - saleor-backend-tier
     volumes:
@@ -41,7 +41,7 @@ services:
       args:
         STATIC_URL: '/static/'
     command: celery -A saleor worker --app=saleor.celeryconf:app --loglevel=info
-    restart: unless-stopped
+    restart: always
     networks:
       - saleor-backend-tier
     env_file: common.env
